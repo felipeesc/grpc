@@ -18,6 +18,7 @@ func main()  {
 
 	grpcServer := grpc.NewServer()
 	pb.RegisterUserServiceServer(grpcServer, services.NewUserService)
+	reflection.Register(grpcServer)
 
 	if err := grpcServer.Server(lis); err != nil {
 		log.Fatalf("Não conectou servidor: %v", err)

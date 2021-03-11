@@ -27,3 +27,6 @@ func (*UserService) AddUser(ctx context.Context, req *pb.User) (*pb.User, error)
 		Email: req.GetEmail(),
 	}, nil
 }
+
+// instala o evans .. para fazer primeira chamada...
+// TODO evans -r repl --host localhost --port 50051
