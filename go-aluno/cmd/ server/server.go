@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"net"
+	"github.com/felipeesc/grpc/pb"
+	"github.com/felipeesc/grpc/services"
 	"google.golang.org/grpc"
 )
 // para subir o servidor GRPC
@@ -15,6 +17,7 @@ func main()  {
 	}
 
 	grpcServer := grpc.NewServer()
+	pb.RegisterUserServiceServer(grpcServer, services.NewUserService)
 
 	if err := grpcServer.Server(lis); err != nil {
 		log.Fatalf("Não conectou servidor: %v", err)
