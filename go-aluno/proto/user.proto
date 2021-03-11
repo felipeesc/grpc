@@ -1,0 +1,24 @@
+syntax = "proto3";
+//nome pacote
+package pb;
+
+//gerando pacote interno no diretorio pb
+option go_package = ".;pb";
+
+//
+message User {
+//  optional string id = 1;
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+
+//definindo servico
+service UserService {
+  rpc AddUser (User) returns (User);
+}
+
+//comando para gerar o arquivo go para manipular...
+//  TODO    protoc --proto_path=proto proto/*.proto --go_out=pb
+//  TODO    protoc --proto_path=proto proto/*.proto --go_out=pb --go-go_out=pb
